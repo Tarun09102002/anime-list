@@ -34,7 +34,7 @@ function Header({ purple }) {
                 })}
             </div>
             <div className={`flex ${isHidden ? 'hidden' : ''} mt-2 md:flex flex-row items-center justify-center md:w-1/4`}>
-                <SearchIcon className={`md:w-[30px] md:h-[30px] hidden sm:flex ${!purple ? 'text-purple-900' : 'text-white'}`} strokeWidth={2}></SearchIcon>
+                <SearchIcon className={`md:w-[30px] h-[25px] hidden sm:flex ${!purple ? 'text-purple-900' : 'text-white'}`} strokeWidth={2}></SearchIcon>
                 <form className='' onSubmit={handleSearch}>
                     <input placeholder='Search Anime...'
                         onChange={e => setSearch(e.target.value)}
