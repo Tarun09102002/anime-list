@@ -41,7 +41,7 @@ function RandomAnime() {
                     </div>
                 </div>
             </div>
-        </div>) : (<div>Loading...</div>)
+        </div>) : (<div>Loading....</div>)
     )
 }
 
