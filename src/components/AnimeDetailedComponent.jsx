@@ -5,7 +5,7 @@ function AnimeDetailedComponent({ anime }) {
     return (
         <div className='drop-shadow-2xl shadow-2xl w-full min-h-screen flex flex-col bg-purple-900'>
             <Header purple={true} ></Header>
-            <div className='flex lg:flex-row  items-center text-center flex-col my-5 px-10 lg:px-40 lg:justify-evenly'>
+            <div className='flex lg:flex-row  items-center text-center lg:text-left flex-col my-5 px-10 lg:px-40 lg:justify-evenly'>
                 <a href={`https://gogoanime.lu//search.html?keyword=${anime.title}`}>
                     <img src={anime.images.jpg.large_image_url} className='rounded-lg shadow-2xl object-cover sm:h-[500px] h-[200px]' alt="" />
                 </a>
