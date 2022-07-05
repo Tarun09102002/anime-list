@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import AnimeCard from '../../components/AnimeCard'
+import AnimeComponent from '../../components/AnimeComponent'
 
 function ReleasingToday() {
     const [day, setDay] = useState('')
@@ -21,11 +22,6 @@ function ReleasingToday() {
         console.log(res)
         setAnime(res.data)
     }
-    const animeComponent = anime.map((anime, index) => {
-        return <div key={index} className='w-1/5 px-5 my-2'>
-            <AnimeCard anime={anime} />
-        </div>
-    })
 
     useEffect(() => {
         getDay()
@@ -37,9 +33,7 @@ function ReleasingToday() {
         <div className='w-screen flex justify-center min-h-screen bg-purple-900 font-display' >
             <div className='drop-shadow-2xl shadow-2xl w-2/3 min-h-screen flex flex-col bg-white'>
                 <Header purple={false}></Header>
-                <div className='flex flex-row flex-wrap my-10 justify-center'>
-                    {animeComponent}
-                </div>
+                <AnimeComponent animeList={anime}></AnimeComponent>
             </div>
         </div >
     )
