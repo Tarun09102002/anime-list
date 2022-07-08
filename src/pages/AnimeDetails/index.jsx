@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import Header from '../../components/Header'
 import { useState, useEffect } from 'react'
 import AnimeDetailedComponent from '../../components/AnimeDetailedComponent'
+import Loading from '../../components/Loading'
 
 function AnimeDetails() {
     const { animeid } = useParams()
@@ -24,7 +25,7 @@ function AnimeDetails() {
 
 
     return (
-        anime ? (<AnimeDetailedComponent anime={anime} />) : (<div>Loading...</div >)
+        anime ? (<AnimeDetailedComponent anime={anime} />) : <Loading />
     )
 }
 
