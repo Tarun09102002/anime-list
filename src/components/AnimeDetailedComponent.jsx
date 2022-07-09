@@ -13,7 +13,7 @@ function AnimeDetailedComponent({ anime }) {
     const cookieSession = cookies.get('session')
 
     const getWatchList = async () => {
-        const res = await axios.get(`${env.REACT_SERVER_URL}/users/watchlist`, {
+        const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/watchlist`, {
             sessionId: cookieSession
         }, { withCredentials: true })
         setWatchList(res.data)
@@ -27,7 +27,7 @@ function AnimeDetailedComponent({ anime }) {
     }
 
     const addToWatchListFunction = async () => {
-        const res = await axios.post(`${env.REACT_SERVER_URL}/add/watchlist`, {
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/add/watchlist`, {
             animeId: anime.mal_id,
             sessionId: cookieSession
         }, { withCredentials: true })
@@ -41,7 +41,7 @@ function AnimeDetailedComponent({ anime }) {
 
 
     const removeFromWatchListFunction = async () => {
-        const res = await axios.post(`${env.REACT_SERVER_URL}/remove/watchlist`, {
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/remove/watchlist`, {
             animeId: anime.mal_id,
             sessionId: cookieSession
         }, { withCredentials: true })

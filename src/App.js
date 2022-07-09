@@ -19,7 +19,8 @@ import env from "react-dotenv"
 
 
 function App() {
-  console.log(env)
+  // console.log(env)
+  console.log(process.env)
   return (
     <CookiesProvider>
       <div className="App font-display">

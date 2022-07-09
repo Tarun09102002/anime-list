@@ -11,7 +11,7 @@ function Register({ setIsLogin }) {
         console.log(username, password)
         setIsLogin(true)
 
-        const res = await axios.post(`${env.REACT_SERVER_URL}/users/register`, {
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/register`, {
             username: username,
             password: password
         })

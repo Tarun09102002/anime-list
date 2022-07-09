@@ -16,7 +16,7 @@ function MyWatchlist() {
     const getWatchList = async () => {
         const cookie = new Cookies
         const cookieSessionId = cookie.get('session')
-        const res = await axios.get(`${env.REACT_SERVER_URL}/users/watchlist`, {
+        const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/watchlist`, {
             sessionId: cookieSessionId
         }, { withCredentials: true })
         console.log(res.data)

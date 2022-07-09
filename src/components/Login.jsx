@@ -19,7 +19,7 @@ function Register() {
         console.log(username, password)
 
 
-        const res = await axios.post(`${env.REACT_SERVER_URL}/users/login`, {
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/login`, {
             username: username,
             password: password
         }, { withCredentials: true })
