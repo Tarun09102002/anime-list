@@ -8,7 +8,7 @@ function AnimeComponent({ animeList }) {
             {
                 animeList.map((anime, index) => {
                     return <div key={index} className='lg:w-1/4 xl:w-1/5 md:w-1/3 sm:w-2/3 w-full h-[300px] px-5 my-2'>
-                        <AnimeCard anime={anime} />
+                        {anime ? <AnimeCard anime={anime} /> : ''}
                     </div>
                 })
             }
