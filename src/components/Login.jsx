@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Cookies } from 'react-cookie'
 import env from 'react-dotenv'
+import AuthApi from '../contexts/AuthApi'
 
 
 function Register() {
@@ -10,31 +11,27 @@ function Register() {
     const [password, setPassword] = useState('')
     const cookies = new Cookies
     const cookieSession = cookies.get('session')
+    const { auth, setAuth } = useContext(AuthApi)
 
 
     const navigate = useNavigate()
 
     const loginUser = async (e) => {
         e.preventDefault()
-        console.log(username, password)
-
-
         const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/login`, {
             username: username,
             password: password
         }, { withCredentials: true })
         console.log(res)
-        console.log(document.cookie)
-        console.log("hello", cookieSession)
         if (res.data.status === 'ok') {
+            setAuth(true)
             navigate('/')
         }
     }
 
-    const checkIfSession = () => {
-        if (cookieSession) {
-            navigate('/')
-        }
+    const checkIfSession = async () => {
+        const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/login`)
+        console.log(res)
     }
 
     useEffect(() => {

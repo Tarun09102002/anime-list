@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Header from './Header'
 import axios from 'axios'
 import { Cookies } from 'react-cookie'
 import Loading from './Loading'
 import { ToastContainer, toast } from 'react-toastify';
 import env from "react-dotenv"
+import WatchListApi from '../contexts/WatchListApi'
 
 function AnimeDetailedComponent({ anime }) {
-    const [watchList, setWatchList] = useState([])
+    const { watchList, setWatchList } = useContext(WatchListApi)
+    // const [watchList, setWatchList] = useState([])
     const [isInWatchList, setIsInWatchList] = useState(false)
     const cookies = new Cookies
     const cookieSession = cookies.get('session')
