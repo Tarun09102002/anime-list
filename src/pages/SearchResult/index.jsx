@@ -2,12 +2,10 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import Header from '../../components/Header'
-import AnimeCard from '../../components/AnimeCard'
 import AnimeComponent from '../../components/AnimeComponent'
 
 function SearchAnime() {
     const { search } = useParams()
-    console.log(search)
     const [animeRes, setAnimeRes] = useState([])
 
     const fetchAnime = async () => {

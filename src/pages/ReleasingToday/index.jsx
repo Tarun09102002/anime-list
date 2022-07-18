@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
-import AnimeCard from '../../components/AnimeCard'
 import AnimeComponent from '../../components/AnimeComponent'
 
 function ReleasingToday() {
@@ -19,13 +18,11 @@ function ReleasingToday() {
         const res = await fetch(`https://api.jikan.moe/v4/schedules?filter=sunday`)
             .then(res => res.json())
             .catch(err => console.log(err))
-        console.log(res)
         setAnime(res.data)
     }
 
     useEffect(() => {
         getDay()
-        console.log(day)
         fetchAnime()
     }, [day])
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import Header from '../../components/Header'
+import Loading from '../../components/Loading'
 import AnimeDetailedComponent from '../../components/AnimeDetailedComponent'
 
 function RandomAnime() {
@@ -10,7 +10,6 @@ function RandomAnime() {
 
     const fetchAnime = async () => {
         const res = await fetch(`https://api.jikan.moe/v4/random/anime`).then(res => res.json())
-        console.log(res)
         setAnime(res.data)
     }
 
@@ -20,7 +19,7 @@ function RandomAnime() {
 
 
     return (
-        anime ? (<AnimeDetailedComponent anime={anime} />) : (<div>Loading....</div>)
+        anime ? (<AnimeDetailedComponent anime={anime} />) : (<Loading />)
     )
 }
 

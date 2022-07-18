@@ -2,15 +2,12 @@ import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { Cookies } from 'react-cookie'
-import env from 'react-dotenv'
 import AuthApi from '../contexts/AuthApi'
 
 
 function Register() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const cookies = new Cookies
-    const cookieSession = cookies.get('session')
     const { auth, setAuth } = useContext(AuthApi)
 
 
@@ -32,6 +29,10 @@ function Register() {
     const checkIfSession = async () => {
         const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/login`)
         console.log(res)
+        if (res.data.loggedIn) {
+            setAuth(true)
+            navigate('/')
+        }
     }
 
     useEffect(() => {
@@ -39,7 +40,7 @@ function Register() {
     }, [])
 
     return (
-        <div className='flex items-center h-full'>
+        <div className='flex items-center h-full text-white'>
             <form onSubmit={loginUser}>
                 <input
                     value={username}

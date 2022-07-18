@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import env from 'react-dotenv'
 
 function Register({ setIsLogin }) {
     const [username, setUsername] = useState('')
@@ -8,7 +7,6 @@ function Register({ setIsLogin }) {
 
     const registerUser = async (e) => {
         e.preventDefault()
-        console.log(username, password)
         setIsLogin(true)
 
         const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/register`, {
@@ -20,7 +18,7 @@ function Register({ setIsLogin }) {
     }
 
     return (
-        <div className='flex items-center h-full'>
+        <div className='flex items-center h-full text-white'>
             <form onSubmit={registerUser}>
                 <input
                     value={username}
